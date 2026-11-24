@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: paycore
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:5432/paycore
+    username: ${DB_USER:paycore}
+    password: ${DB_PASSWORD:local_only_password}
+  flyway:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/paycore
+    user: ${DB_USER:paycore}
+    password: ${DB_PASSWORD:local_only_password}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
